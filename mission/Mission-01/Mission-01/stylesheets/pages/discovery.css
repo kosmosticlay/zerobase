@@ -1,1 +1,98 @@
 /* CSS 작성 */
+
+.bodyWrap {
+  width: 1040px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 176px;
+  height: 40px;
+  margin-top: 100px;
+  margin-bottom: 48px;
+  padding-left: 8px;
+}
+
+.logo img {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.section__title {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.section__title :not(h2) {
+  color: var(--color-gray);
+}
+
+h2 {
+  font-size: 1.3rem; /* 24px */
+  margin-right: 10px;
+}
+
+h3 {
+  margin-left: 10px;
+  font-size: 0.8rem; /* 12.8px */
+}
+
+.section__contents {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.section__contents img {
+  object-fit: contain;
+}
+
+.contents__list-item {
+  width: 243px;
+  height: 310px;
+  border: 1px solid var(--color-gray);
+  margin: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  position: relative;
+}
+
+.item--large {
+  width: 502px;
+}
+
+.contents__list-item:hover,
+.contents__list-item:focus-within {
+  border: 1px solid var(--color-blue);
+}
+
+.purchase-btn {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-black-opacity20);
+  color: var(--color-white);
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.purchase-btn::after {
+  content: ">";
+}
+
+.purchase-btn:hover,
+.purchase-btn:focus {
+  width: 100px;
+  background-color: var(--color-blue);
+}
+
+.purchase-btn:hover::after,
+.purchase-btn:focus::after {
+  content: "구매하기 >";
+}
