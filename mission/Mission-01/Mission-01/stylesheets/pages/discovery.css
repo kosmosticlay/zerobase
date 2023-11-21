@@ -35,7 +35,7 @@ h2 {
 
 h3 {
   margin-left: 10px;
-  font-size: 0.8rem; /* 12.8px */
+  font-size: 1rem; /* 12.8px */
 }
 
 .section__contents {
@@ -73,13 +73,14 @@ h3 {
   height: 40px;
   background-color: var(--color-black-opacity20);
   color: var(--color-white);
+  font-size: 14px;
   position: absolute;
   left: 20px;
   bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.4s ease;
 }
 
 .purchase-btn::after {
@@ -88,11 +89,11 @@ h3 {
 
 .purchase-btn:hover,
 .purchase-btn:focus {
-  width: 100px;
+  width: 110px;
   background-color: var(--color-blue);
 }
 
 .purchase-btn:hover::after,
 .purchase-btn:focus::after {
-  content: "구매하기 >";
+  content: "구매하기\00a0\00a0\00a0>";
 }
