@@ -22,6 +22,7 @@
   display: flex;
   align-items: center;
   padding-left: 8px;
+  margin-bottom: 24px;
 }
 
 .section__title :not(h2) {
@@ -59,6 +60,11 @@ h3 {
   position: relative;
 }
 
+.contents__list-item:nth-of-type(1),
+.contents__list-item:nth-of-type(2) {
+  margin-top: 0;
+}
+
 .item--large {
   width: 502px;
 }
@@ -69,31 +75,36 @@ h3 {
 }
 
 .purchase-btn {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   background-color: var(--color-black-opacity20);
   color: var(--color-white);
   font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
   position: absolute;
   left: 20px;
   bottom: 20px;
   display: flex;
+  padding: 12px 18px 13px 20px;
   justify-content: center;
   align-items: center;
+  gap: 12px;
   transition: background-color 0.4s ease;
-}
-
-.purchase-btn::after {
-  content: ">";
 }
 
 .purchase-btn:hover,
 .purchase-btn:focus {
-  width: 110px;
+  width: 112px;
   background-color: var(--color-blue);
 }
 
-.purchase-btn:hover::after,
-.purchase-btn:focus::after {
-  content: "구매하기\00a0\00a0\00a0>";
+.purchase-btn:hover::before,
+.purchase-btn:focus::before {
+  content: "구매하기";
+}
+
+.purchase-btn i {
+  font-size: 14px;
+  padding-top: 2px;
 }
