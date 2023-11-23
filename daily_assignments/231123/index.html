@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인스타그램 클론코딩 과제</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/3e809e2e54.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="bodyWrap">
+      <div class="status-bar">
+        <span>9:41</span>
+        <div class="signals">
+          <img src="./images/signal.png" alt="signals" />
+          <img src="./images/wifi.png" alt="wifi" />
+          <img src="./images/battery.png" alt="battery" />
+        </div>
+      </div>
+      <header class="header">
+        <div class="header__logo">
+          <img src="./images/logo.png" alt="logo-image" />
+          <i class="fa-solid fa-chevron-down fa-sm"></i>
+        </div>
+        <div class="header__action-btns">
+          <img src="./images/heart.png" alt="heart-likes" />
+          <img src="./images/messenger.png" alt="messenger" />
+          <img src="./images/add.png" alt="add" />
+        </div>
+      </header>
+      <section class="followings">
+        <ul class="following-list">
+          <li class="following-item">
+            <div class="following-item__profile">
+              <div class="profile__background main-user"></div>
+              <div class="profile__photo"></div>
+            </div>
+            <div class="following-item__username main-username">Ruffles</div>
+            <img class="plus-btn" src="./images/plusBtn.png" alt="plusBtn" />
+          </li>
+          <li class="following-item">
+            <div class="following-item__profile">
+              <div class="profile__background"></div>
+              <div class="profile__photo"></div>
+            </div>
+            <div class="following-item__username">Sabanok...</div>
+          </li>
+          <li class="following-item">
+            <div class="following-item__profile">
+              <div class="profile__background"></div>
+              <div class="profile__photo"></div>
+            </div>
+            <div class="following-item__username">blue-bouy</div>
+          </li>
+          <li class="following-item">
+            <div class="following-item__profile">
+              <div class="profile__background"></div>
+              <div class="profile__photo"></div>
+            </div>
+            <div class="following-item__username">waggles</div>
+          </li>
+          <li class="following-item">
+            <div class="following-item__profile">
+              <div class="profile__background"></div>
+              <div class="profile__photo"></div>
+            </div>
+            <div class="following-item__username">steve.lo</div>
+          </li>
+          <!--<a href="#" class="profile__add-btn"></a>-->
+        </ul>
+      </section>
+      <main class="user-content">
+        <header class="user-content__header">
+          <div class="header__user-profile">
+            <div class="following-item__profile profile--small">
+              <div class="profile__background background-small"></div>
+              <div class="profile__photo photo--small"></div>
+            </div>
+            <div class="user-profile__userInfo">
+              <div class="userInfo-username">Ruffles</div>
+              <div class="userInfo-details">Sponsered</div>
+            </div>
+          </div>
+          <img src="./images/ellipsis.png" alt="ellipsis" />
+        </header>
+        <article class="user-content__photo"></article>
+        <div class="user-content__social-btns">
+          <div class="social-btns__left">
+            <img src="./images/heart-red.png" alt="heart-red" />
+            <img src="./images/comment.png" alt="comment" />
+            <img src="./images/share.png" alt="share" />
+          </div>
+          <div class="social-btns__right">
+            <img src="./images/bookmark.png" alt="bookmark" />
+          </div>
+        </div>
+        <section class="user-content__description">
+          <span>100 Likes</span>
+          <p>
+            <span>Username</span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda,
+            maxime reiciendis nam magni unde, explicabo illo minima incidunt
+            aspernatur, nobis non porro nihil deserunt labore dolorem mollitia
+            harum corporis nulla! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Assumenda, maxime reiciendis nam magni...
+            <span>more</span>
+          </p>
+        </section>
+        <div class="comments-cnt">View all 16 comments</div>
+        <footer class="footer">
+          <img src="./images/home.png" alt="home" />
+          <img src="./images/search.png" alt="search" />
+          <img src="./images/shorts.png" alt="shorts" />
+          <img src="./images/shopping.png" alt="shopping" />
+          <img src="./images/avatar.png" alt="avartar" />
+        </footer>
+        <div class="homeIndicator">
+          <div class="homeIndicator__bar"></div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
