@@ -26,3 +26,23 @@
     -webkit-text-fill-color: transparent;
   }
   ```
+
+<hr>
+
+## 🤔 문제 및 고려사항
+
+### HTML 유효성 검사
+
+- **`<a>`내부에 `<button>` 포함 불가**
+  ![validationError_button](./assets/images/validationError_button.png){: width="580"}
+
+  - `<a>` 자체가 버튼이어야 할 경우, `<a>`의 CSS 스타일링을 버튼처럼 설정
+  - `<a>` 내부에 버튼이 존재해야 할 경우, `a` 내부에 `<div>`를 CSS 스타일링을 버튼처럼 설정
+    <br/>
+
+- **`<section>` 내부에 heading 포함 권장 (예: `h2`~`h6`)**
+  ![validationWarning_section](./assets/images/validationWarning_section_lackingHeading.png){: width="700"}
+
+  - 독립적인 내용을 담고 있지 않은 경우나, 단순 컨테이너로서 스타일링/레이아웃 목적으로 사용될 경우에는 `<section>` 대신 `<div>`를 사용하는 것이 적절
+
+  - `<section>`을 사용하는 것이 의미적으로는 적절하지만, heading을 노출시키지 않아야 할 경우에는 시각적으로는 숨기고 스크린 리더에만 읽힐 수 있도록 CSS로 스타일링 설정
