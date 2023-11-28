@@ -24,3 +24,8 @@ button {
 button:disabled {
   cursor: not-allowed;
 }
+
+figure {
+  margin: 0;
+  padding: 0;
+}
