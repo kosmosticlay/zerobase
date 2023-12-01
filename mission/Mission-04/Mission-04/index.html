@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>헤더 - 쿠팡(Coupang)</title>
-  <link rel="icon" href="/assets/favicon/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/stylesheets/main.css" />
-  <script src="/js/main.js" defer></script>
-</head>
-
-<body>
-
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>헤더 - 쿠팡(Coupang)</title>
+    <link rel="icon" href="/assets/favicon/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./stylesheets/main.css" />
+    <script src="./js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="header-container">
+      <article class="header-container__top-bar">
+        <h2 class="sr-only">웹 페이지 상단바</h2>
+        <ul class="loginBar-list">
+          <li class="loginBar-item"><a href="/">로그인</a></li>
+          <li class="loginBar-item"><a href="/">회원가입</a></li>
+          <li class="loginBar-item"><a href="/">고객센터</a></li>
+          <li class="loginBar-item"><a href="/">쿠팡플레이</a></li>
+          <li class="loginBar-item"><a href="/">제휴마케팅</a></li>
+        </ul>
+      </article>
+      <header class="header-container__header">
+        <button class="button--category">
+          <img src="./assets/icon/hamburger.svg" alt="카테고리 아이콘" />
+          <span>카테고리</span>
+        </button>
+        <h1 class="header-logo">
+          <a
+            href="https://www.coupang.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img src="./assets/logo/logo.svg" alt="Coupang"
+          /></a>
+        </h1>
+        <div class="header-searchForm"></div>
+        <div class="myCoupang">
+          <button></button>
+          <ul></ul>
+        </div>
+      </header>
+    </div>
+  </body>
 </html>
