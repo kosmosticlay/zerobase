@@ -30,7 +30,7 @@
       <header class="header-container__header">
         <button class="button--category">
           <img src="./assets/icon/hamburger.svg" alt="카테고리 아이콘" />
-          <span>카테고리</span>
+          카테고리
         </button>
         <h1 class="header-logo">
           <a
@@ -40,11 +40,83 @@
             ><img src="./assets/logo/logo.svg" alt="Coupang"
           /></a>
         </h1>
-        <div class="header-searchForm"></div>
-        <div class="myCoupang">
-          <button></button>
-          <ul></ul>
+        <div class="header-search">
+          <form action="/" class="search-form">
+            <div class="search-dropdown">
+              <label for="category-select" class="sr-only">카테고리:</label>
+              <select
+                name="카테고리"
+                id="category-select"
+                aria-labelledby="category-select"
+              >
+                <option value="">전체</option>
+              </select>
+              <img src="./assets/icon/IconMoreDown.svg" alt="카테코리 목록" />
+            </div>
+            <input
+              type="search"
+              id="search-input"
+              name="search-product"
+              required
+              placeholder="찾고 싶은 상품을 검색해 보세요!"
+            />
+            <button class="search-btn-mic">
+              <img src="./assets/icon/mic.svg" alt="음성검색" />
+            </button>
+            <button class="search-btn-keyword">
+              <img src="./assets/icon/search.svg" alt="키워드검색" />
+            </button>
+          </form>
         </div>
+        <div class="myCoupang">
+          <button class="myCoupang-btn-icon">마이쿠팡</button>
+          <ul class="myCoupang-list">
+            <li class="myCoupang-item"><a href="/">주문목록</a></li>
+            <li class="myCoupang-item"><a href="/">취소/반품</a></li>
+            <li class="myCoupang-item"><a href="/">찜리스트</a></li>
+          </ul>
+        </div>
+        <div class="cart">
+          <button class="cart-btn-icon">
+            장바구니
+            <span class="cart-cnt">0</span>
+          </button>
+          <div class="cart-msg"></div>
+        </div>
+        <nav class="header-nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <img src="./assets/icon/icon-rocket.svg" alt="로켓배송" />
+              <a href="/">로켓배송</a>
+            </li>
+            <li class="nav-item">
+              <img src="./assets/icon/icon-fresh.svg" alt="로켓프레시" />
+              <a href="/">로켓프레시</a>
+            </li>
+            <li class="nav-item">
+              <a href="/">2022년 설날</a>
+              <img src="./assets/icon/new.svg" alt="2022년 설날" />
+            </li>
+            <li class="nav-item">
+              <a href="/">로켓직구</a>
+            </li>
+            <li class="nav-item">
+              <a href="/">골드박스</a>
+            </li>
+            <li class="nav-item">
+              <a href="/">정기배송</a>
+            </li>
+            <li class="nav-item">
+              <a href="/">이벤트/쿠폰</a>
+            </li>
+            <li class="nav-item">
+              <a href="/">기획전</a>
+            </li>
+            <li class="nav-item">
+              <a href="/">여행티켓</a>
+            </li>
+          </ul>
+        </nav>
       </header>
     </div>
   </body>

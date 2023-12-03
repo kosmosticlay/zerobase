@@ -28,7 +28,7 @@
 .loginBar-item {
   width: auto;
   height: auto;
-  display: block;
+  display: inline-block;
   font-size: 12px;
 }
 .loginBar-item a {
@@ -42,19 +42,14 @@
 .loginBar-item:nth-last-child(-n + 2) {
   order: 1;
 }
-.loginBar-item:last-child::after {
-  content: "";
-  display: inline-block;
-  width: 728px;
-  height: 24px;
-  background-color: black;
+.loginBar-item:last-child {
+  margin-right: 728px;
 }
 
 /* header */
 .header-container__header {
   width: 1020px;
   height: 116px;
-  background-color: beige;
   margin: 0 auto;
   display: grid;
   grid-template-rows: 84px 32px;
@@ -75,8 +70,8 @@
   grid-row: 1/3;
   grid-column: 1;
 }
-.button--category span {
-  margin-top: 12px;
+.button--category img {
+  margin-bottom: 12px;
 }
 
 /* header-logo */
@@ -86,4 +81,247 @@
 .header-logo img {
   width: 176px;
   height: 40px;
+}
+
+/* header-searchForm */
+.header-search {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.search-form {
+  width: 516px;
+  height: 40px;
+  border: 2px solid var(--color-blue-600);
+  background-color: var(--color-white);
+  display: flex;
+}
+.search-dropdown {
+  width: 135px;
+  height: 100%;
+  position: relative;
+}
+
+#category-select {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+  border-right: 1px solid var(--color-gray-100);
+  background: transparent;
+  color: var(--color-gray-700);
+  cursor: pointer;
+}
+
+.search-dropdown img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+#search-input {
+  width: 310px;
+  height: 100%;
+  color: var(--color-gray-600);
+  padding: 0 10px;
+  outline: none;
+  border: none;
+}
+
+.search-btn-mic,
+.search-btn-keyword {
+  all: unset;
+  cursor: pointer;
+}
+.search-btn-keyword {
+  margin-left: 5px;
+}
+
+/* header-button-myCoupang */
+.myCoupang {
+  width: 90px;
+  height: 195px;
+  margin-top: 18px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.myCoupang button {
+  width: 45px;
+  height: 58px;
+  border: none;
+  background: none;
+}
+
+.myCoupang-btn-icon::before {
+  content: url(../../assets/icon/my-coupang.svg);
+  display: block;
+}
+
+.myCoupang ul {
+  display: none;
+}
+
+.myCoupang button:hover + .myCoupang-list,
+.myCoupang-list:hover {
+  width: 100%;
+  height: 120px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-25%);
+  border: 1px solid var(--color-gray-300);
+  text-align: left;
+  margin-top: 10px;
+}
+
+.is--active ul:after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: #ffffff transparent;
+  display: block;
+  width: 0;
+  z-index: 1;
+  top: -9px;
+  left: 40%;
+}
+
+.is--active ul:before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: var(--color-gray-300) transparent;
+  display: block;
+  width: 0;
+  z-index: 0;
+  top: -10px;
+  left: 40%;
+}
+
+.myCoupang-item {
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+/* header-button-cart */
+
+.cart {
+  width: 90px;
+  height: 195px;
+  margin-top: 18px;
+  font-size: 12px;
+}
+.cart button {
+  width: 45px;
+  height: 58px;
+  border: none;
+  background: none;
+  position: relative;
+}
+.cart-btn-icon::before {
+  content: url(../../assets/icon/cart.svg);
+  display: block;
+}
+
+.cart button:hover + .cart-msg,
+.cart-msg:hover {
+  width: 300px;
+  height: 120px;
+  background-color: #ffffff;
+  transform: translateX(-34%);
+  border: 1px solid var(--color-gray-300);
+  margin-top: 10px;
+  position: absolute;
+  right: 155px;
+}
+
+.cart--empty .cart-msg::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: #ffffff transparent;
+  display: block;
+  text-align: center;
+  width: 0;
+  z-index: 1;
+  top: -9px;
+  left: 90%;
+}
+
+.cart--empty .cart-msg::before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: var(--color-gray-300) transparent;
+  display: block;
+  width: 0;
+  z-index: 0;
+  top: -10px;
+  left: 90%;
+}
+.cart button:hover::after {
+  content: "장바구니에 담긴 상품이 없습니다.";
+  font-size: 14px;
+  width: 200px;
+  position: absolute;
+  top: 120px;
+  right: 90%;
+  z-index: 2;
+}
+.cart-cnt {
+  width: 15px;
+  height: 15px;
+  display: block;
+  border-radius: 50%;
+  background-color: var(--color-blue-600);
+  color: var(--color-white);
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  text-align: center;
+}
+
+.header-nav {
+  grid-column: 2/4;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  padding-left: 30px;
+}
+.nav-list {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding-right: 16px;
+}
+.nav-item {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.nav-item img {
+  margin-right: 3px;
+}
+.nav-item:nth-child(3) a {
+  margin-right: 3px;
 }
