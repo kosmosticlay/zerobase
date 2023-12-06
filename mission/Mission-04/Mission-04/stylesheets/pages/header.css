@@ -142,9 +142,18 @@
 .search-btn-keyword {
   all: unset;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+.search-btn-mic {
+  background-image: url(../../assets/icon/mic.svg);
+  background-repeat: no-repeat;
+  background-position: 5px 3px;
 }
 .search-btn-keyword {
-  margin-left: 5px;
+  background-image: url(../../assets/icon/search.svg);
+  background-repeat: no-repeat;
+  background-position: 5px 3px;
 }
 
 /* header-button-myCoupang */
