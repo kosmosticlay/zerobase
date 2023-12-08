@@ -38,7 +38,7 @@
 
   - `<a>` 자체가 버튼이어야 할 경우, `<a>`의 CSS 스타일링을 버튼처럼 설정
   - `<a>` 내부에 버튼이 존재해야 할 경우, `a` 내부에 `<div>`를 CSS 스타일링을 버튼처럼 설정
-    <br/>
+    <br/><br/>
 
 - **`<section>` 내부에 heading 포함 권장 (예: `h2`~`h6`)**
   ![validationWarning_section](./assets/images/validationWarning_section_lackingHeading.png){: width="700"}

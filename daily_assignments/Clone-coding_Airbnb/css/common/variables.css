@@ -1,4 +1,10 @@
 :root {
-  --color-main: #ff395c;
+  --color-red: #ff395c;
   --color-gray: #848484;
+  --color-gray-light: #dfdfdf;
+  --color-gray-dark: #5b5b5b;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  /* layout */
+  --padding-global: 0 80px;
 }

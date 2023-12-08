@@ -1,3 +1,7 @@
+/* configuration */
 @import "./common/reset.css";
 @import "./common/variables.css";
 @import "./common/default.css";
+
+/* home */
+@import "./home.css";
