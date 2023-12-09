@@ -88,10 +88,11 @@
 }
 
 .topic-area__container {
-  width: 92%;
+  width: 90%;
   height: 80px;
   overflow-x: hidden;
   margin-right: 15px;
+  position: relative;
 }
 
 .topic-area {
@@ -149,11 +150,11 @@
 
 .topic-item:last-of-type::after {
   content: "";
-  width: 30px;
+  width: 100px;
   height: 56px;
-  background: linear-gradient(to right, transparent, var(--color-white) 80%);
+  background: linear-gradient(to right, transparent, var(--color-white) 70%);
   position: absolute;
-  right: 210px;
+  right: 0;
 }
 
 /* place-area */
@@ -177,18 +178,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 10px;
 }
 
 .topic-area-btn--fliter {
-  width: 60px;
+  width: 70px;
   height: 45px;
-  background-color: #e4bfbf;
   border-radius: 10px;
+  border: 1px solid var(--color-gray-light);
   margin-left: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
