@@ -34,14 +34,13 @@
 .product-card__list {
   width: 100%;
   padding-inline-start: 0px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  justify-content: space-between;
 }
 .product-card__item {
   width: 200px;
   height: 270px;
   list-style: none;
-
   position: relative;
 }
 .product-card__item a {
@@ -116,16 +115,4 @@
   font-style: normal;
   font-weight: 600;
   line-height: 150%; /* 24px */
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  border: 0;
-  clip: rect(0 0 0 0);
 }
