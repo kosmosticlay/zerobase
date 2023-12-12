@@ -231,8 +231,8 @@
 /* header-button-cart */
 
 .cart {
-  width: 90px;
-  height: 195px;
+  width: 45px;
+  height: 58px;
   margin-top: 18px;
   font-size: 12px;
 }
@@ -286,7 +286,7 @@
   top: -10px;
   left: 90%;
 }
-.cart button:hover::after {
+.cart--empty button::after {
   content: "장바구니에 담긴 상품이 없습니다.";
   font-size: 14px;
   width: 200px;
