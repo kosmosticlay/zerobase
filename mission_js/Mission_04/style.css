@@ -1,0 +1,46 @@
+@import "./date-picker/calendar.css";
+@import "./date-picker/component/date.css";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans";
+  background-color: #f2f4f6;
+}
+
+input {
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 1em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+li {
+  list-style: none;
+}
+
+.title {
+  color: #db5b33;
+  font-weight: 300;
+}
+.date-input {
+  display: block;
+  padding: 10px;
+  width: 12rem;
+  height: 2.5rem;
+  cursor: pointer;
+  border: 2px solid #dedfe1;
+}
+
+.date-input:focus {
+  outline: none;
+  border: 2px solid #557db5;
+}
