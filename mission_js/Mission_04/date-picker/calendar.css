@@ -2,11 +2,12 @@
   --calendar-width: 350px;
   --color-green: #5cd17b;
   --color-grey-bg: #f2f4f6;
+  --color-grey-date: #bebebe;
 }
 
 .calendar {
   width: var(--calendar-width);
-  height: calc(var(--calendar-width) * 1.1);
+  height: calc(var(--calendar-width) * 1.2);
   min-width: 350px;
   min-height: 385px;
   margin-top: 10px;
@@ -56,15 +57,15 @@
   height: 75%;
   background-color: var(--color-grey-bg);
   display: grid;
-  grid-template-rows: minmax(0, 50px) 6fr;
+  grid-template-rows: 0.7fr 6fr;
   padding: 0 15px;
 }
 
 .days-list {
-  max-height: 50px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-size: calc(var(--calendar-width) * 0.035);
+  color: var(--color-grey-date);
 }
 .day-name {
   display: flex;
@@ -78,6 +79,21 @@
   grid-template-rows: repeat(6, 1fr);
 }
 
+.dates-grid li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(var(--calendar-width) * 0.035);
+}
+
+.dates-grid li:not(.not-this-month) {
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
+}
+
+.not-this-month {
+  color: var(--color-grey-date);
 }
