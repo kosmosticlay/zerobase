@@ -1,5 +1,4 @@
 @import "./date-picker/calendar.css";
-@import "./date-picker/component/date.css";
 
 *,
 *::after,
@@ -9,6 +8,8 @@
   box-sizing: border-box;
 }
 body {
+  width: 100%;
+  height: 100vh;
   font-family: "Open Sans";
   background-color: #f2f4f6;
 }
@@ -27,12 +28,24 @@ li {
   list-style: none;
 }
 
+button {
+  all: unset;
+}
+
+#main-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .title {
   color: #db5b33;
   font-weight: 300;
 }
 .date-input {
   display: block;
+  margin-top: 20px;
   padding: 10px;
   width: 12rem;
   height: 2.5rem;

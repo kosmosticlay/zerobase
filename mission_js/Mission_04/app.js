@@ -1,39 +1,44 @@
-import { getCalendar, removeCalendar } from "./date-picker/index.js";
+import {
+  renderCalendar,
+  removeCalendar,
+  updateNavHeader,
+} from "./date-picker/index.js";
 
+const $calendar = document.querySelector(".calendar");
 const $dateInput = document.querySelector(".date-input");
+const $arrowBackward = document.querySelector(".arrow-backward");
+const $arrowForward = document.querySelector(".arrow-forward");
 
-$dateInput.addEventListener("focus", function (event) {
-  if ($dateInput.nextElementSibling) return;
-  getCalendar();
-});
-
-document.addEventListener("click", function (event) {
-  // 클릭된 요소가 input이면 removeCalendar 함수를 실행하지 않음
-  const $calendar = document.querySelector(".calendar");
-  if (event.target !== $dateInput) {
-    if ($calendar) {
-      removeCalendar($calendar, event);
+// 요소 크기 변화 옵저버 생성
+const ro = new ResizeObserver((entries) => {
+  for (let entry of entries) {
+    let newWidth = entry.contentRect.width;
+    if (newWidth > 500) {
+      newWidth = 500;
     }
+    document.documentElement.style.setProperty(
+      "--calendar-width",
+      `${newWidth}px`
+    );
   }
 });
 
-/* 캘린더 월별 검색 */
-// const $dateInput = document.querySelector(".date-input");
+ro.observe($calendar);
 
-// // 입력창에 오늘의 날짜 표현
-// let today = new Date();
-// let todayYear = today.getFullYear();
-// let todayMonth = today.getMonth();
-// let todayDate = today.getDate();
+// 캘린더 생성 및 제거
+$dateInput.addEventListener("focus", renderCalendar);
+document.addEventListener("click", function (event) {
+  // 클릭된 요소가 input이면 removeCalendar 함수를 실행하지 않음
 
-// if (todayMonth < 9) {
-//   todayMonth = "0" + (todayMonth + 1);
-// } else {
-//   todayMonth += 1;
-// }
+  if (event.target !== $dateInput) {
+    removeCalendar($calendar, event);
+  }
+});
 
-// if (todayDate < 10) {
-//   todayDate = "0" + todayDate;
-// }
-
-// $dateInput.placeholder = `${todayYear}-${todayMonth}-${todayDate}`;
+// 캘린더에서 이전/다음 월 이동
+$arrowBackward.addEventListener("click", () => {
+  updateNavHeader("backward");
+});
+$arrowForward.addEventListener("click", () => {
+  updateNavHeader("forward");
+});

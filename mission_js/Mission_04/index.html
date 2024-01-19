@@ -11,10 +11,33 @@
     />
     <link href="style.css" rel="stylesheet" />
     <script type="module" src="app.js"></script>
+  </head>
   <body>
+    <div id="main-wrap">
       <h1 class="title">Date Picker</h1>
-      <div class="mainWrap">
-        <input class="date-input" readonly placeholder="Select date"/>
+      <input class="date-input" readonly placeholder="Select date" />
+      <div class="calendar hidden">
+        <div class="calendar-nav">
+          <button class="arrow-backward">◀</button>
+          <div class="nav__header">
+            <span class="nav__header__month"></span>
+            <span class="nav__header__year"></span>
+          </div>
+          <button class="arrow-forward">▶</button>
+        </div>
+        <div class="calendar-grid">
+          <ul class="days-list">
+            <li class="day-name">SUN</li>
+            <li class="day-name">MON</li>
+            <li class="day-name">TUES</li>
+            <li class="day-name">WED</li>
+            <li class="day-name">THUR</li>
+            <li class="day-name">FRI</li>
+            <li class="day-name">SAT</li>
+          </ul>
+          <div class="dates-grid"></div>
+        </div>
       </div>
+    </div>
   </body>
 </html>
