@@ -28,6 +28,7 @@ const monthNamesList = [
   "December",
 ];
 
+// 월 마지막 날짜
 const monthDayList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 function getNavHeader(dateObj) {
@@ -35,6 +36,7 @@ function getNavHeader(dateObj) {
   $headerMonth.textContent = monthNamesList[dateObj.getMonth()];
 }
 
+// 버튼 클릭시 이전/다음 월 표시
 function getCurrentObj(direction) {
   currentObj = new Date(
     parseInt($headerYear.textContent),
@@ -118,23 +120,7 @@ function updateCalendarGrid(dateObj) {
   }
 }
 
-function pickDate(todayObj) {
-  const $navHeaderMonth = document.querySelector(".nav__header__month");
-  const $navHeaderYear = document.querySelector(".nav__header__year");
-  if (
-    monthNamesList[todayObj.getMonth()] === $navHeaderMonth.textContent &&
-    todayObj.getFullYear() === parseInt($navHeaderYear.textContent)
-  ) {
-    const datePicked = todayObj.getDate(); // 19
-    const $thisMonthDates = document.querySelectorAll(".this-month");
-    const [liPicked] = [...$thisMonthDates].filter(
-      (_, idx) => idx === datePicked - 1
-    );
-
-    liPicked.classList.add("circle");
-  }
-}
-
+// 사용자가 선택한 일자 표시하고, localStorage에 저장
 function renderDatePicked(currentObj) {
   const $dates = document.querySelectorAll(".this-month");
   $dates.forEach(($date) => {
@@ -166,6 +152,7 @@ function renderDatePicked(currentObj) {
   });
 }
 
+// localStorage에 저장된 (사용자가 선택한)일자 표시
 function renderDateSaved() {
   const $navHeaderMonth = document.querySelector(".nav__header__month");
   const dateSelected = JSON.parse(localStorage.getItem("dateSelected"));
@@ -184,6 +171,7 @@ function renderDateSaved() {
   }
 }
 
+// 오늘 일자 표시
 function renderToday() {
   const $navHeaderMonth = document.querySelector(".nav__header__month");
   const $navHeaderYear = document.querySelector(".nav__header__year");
@@ -200,6 +188,7 @@ function renderToday() {
   }
 }
 
+// 휴일 표시
 function renderHolidays() {
   const firstDayOfMonth = new Date(
     currentObj.getFullYear(),
@@ -221,7 +210,7 @@ function renderHolidays() {
     }
   });
 }
-
+// 버튼으로 선택한 월별 캘린더 업데이트
 export const updateNavHeader = (direction) => {
   if (!currentObj) {
     getNavHeader(todayObj);
@@ -243,7 +232,6 @@ export const updateNavHeader = (direction) => {
 export const renderCalendar = () => {
   $calendarContainer.classList.remove("hidden");
   updateNavHeader();
-  //pickDate(todayObj);
 };
 
 // 화면에서 캘린더 제거
