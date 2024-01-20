@@ -77,23 +77,47 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  justify-items: center;
+  align-items: center;
 }
 
 .dates-grid li {
+  width: calc(var(--calendar-width) * 0.1);
+  height: calc(var(--calendar-width) * 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: calc(var(--calendar-width) * 0.035);
+  transition: color ease-in 50ms;
+  border-radius: 50%;
 }
 
-.dates-grid li:not(.not-this-month) {
+.dates-grid li.this-month {
   cursor: pointer;
+}
+
+.dates-grid li.this-month:hover {
+  background-color: var(--color-green);
+  color: white;
 }
 
 .hidden {
   display: none;
 }
 
-.not-this-month {
+.dates-grid li:not(.this-month) {
   color: var(--color-grey-date);
+}
+
+.circle {
+  border: 1px solid var(--color-green);
+}
+
+.picked {
+  background-color: var(--color-green);
+  color: white;
+}
+
+.holiday {
+  color: red;
 }

@@ -1,4 +1,5 @@
 const $calendarContainer = document.querySelector(".calendar");
+const $dateInput = document.querySelector(".date-input");
 const $datesGrid = document.querySelector(".dates-grid");
 
 let $headerYear = document.querySelector(".nav__header__year");
@@ -12,7 +13,7 @@ const todayObj = new Date(utc + kstGap);
 let currentObj;
 
 // 월 이름
-const monthNames = [
+const monthNamesList = [
   "January",
   "February",
   "March",
@@ -27,23 +28,17 @@ const monthNames = [
   "December",
 ];
 
-function CreateDOM(element, className) {
-  const $element = document.createElement(element);
-  if (className) {
-    $element.className = className;
-  }
-  return $element;
-}
+const monthDayList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 function getNavHeader(dateObj) {
   $headerYear.textContent = dateObj.getFullYear();
-  $headerMonth.textContent = monthNames[dateObj.getMonth()];
+  $headerMonth.textContent = monthNamesList[dateObj.getMonth()];
 }
 
 function getCurrentObj(direction) {
   currentObj = new Date(
     parseInt($headerYear.textContent),
-    monthNames.indexOf($headerMonth.textContent)
+    monthNamesList.indexOf($headerMonth.textContent)
   );
 
   if (direction === "backward") {
@@ -70,7 +65,6 @@ function checkLunarYear(year) {
 // 각 월에 해당하는 달력 업데이트
 function updateCalendarGrid(dateObj) {
   $datesGrid.innerHTML = "";
-  const monthDayList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   if (dateObj.getMonth() === 1) {
     if (checkLunarYear(dateObj.getFullYear())) monthDayList[1] = 29;
   }
@@ -89,7 +83,6 @@ function updateCalendarGrid(dateObj) {
   for (let i = 0; i < firstDay; i++) {
     const $tempLi = document.createElement("li");
     $tempLi.textContent = preMonthLastDate;
-    $tempLi.classList.add("not-this-month");
 
     if (i === 0) {
       $datesGrid.appendChild($tempLi);
@@ -104,6 +97,7 @@ function updateCalendarGrid(dateObj) {
   for (let i = 0; i < monthDayList[dateObj.getMonth()]; i++) {
     const $tempLi = document.createElement("li");
     $tempLi.textContent = i + 1;
+    $tempLi.classList.add("this-month");
 
     $datesGrid.appendChild($tempLi);
 
@@ -117,13 +111,115 @@ function updateCalendarGrid(dateObj) {
   for (let i = 0; i < remainDays; i++) {
     const $tempLi = document.createElement("li");
     $tempLi.textContent = i + 1;
-    $tempLi.classList.add("not-this-month");
 
     $datesGrid.appendChild($tempLi);
 
     tempArr.push(i + 1);
   }
-  console.log(tempArr);
+}
+
+function pickDate(todayObj) {
+  const $navHeaderMonth = document.querySelector(".nav__header__month");
+  const $navHeaderYear = document.querySelector(".nav__header__year");
+  if (
+    monthNamesList[todayObj.getMonth()] === $navHeaderMonth.textContent &&
+    todayObj.getFullYear() === parseInt($navHeaderYear.textContent)
+  ) {
+    const datePicked = todayObj.getDate(); // 19
+    const $thisMonthDates = document.querySelectorAll(".this-month");
+    const [liPicked] = [...$thisMonthDates].filter(
+      (_, idx) => idx === datePicked - 1
+    );
+
+    liPicked.classList.add("circle");
+  }
+}
+
+function renderDatePicked(currentObj) {
+  const $dates = document.querySelectorAll(".this-month");
+  $dates.forEach(($date) => {
+    $date.addEventListener("click", () => {
+      const prePicked = document.querySelector(".picked");
+      if (prePicked) {
+        prePicked.classList.remove("picked");
+      }
+      $date.classList.add("picked");
+
+      const yearPicked = currentObj.getFullYear();
+      let monthPicked = currentObj.getMonth();
+      if (monthPicked < 10) {
+        monthPicked = "0" + (monthPicked + 1);
+      } else {
+        monthPicked++;
+      }
+      let datePicked = parseInt($date.textContent);
+      if (datePicked < 10) {
+        datePicked = "0" + datePicked;
+      }
+
+      $dateInput.value = `${yearPicked}-${monthPicked}-${datePicked}`;
+
+      // localstorage에 저장하기
+      const dateSelected = [yearPicked, monthPicked, datePicked];
+      localStorage.setItem("dateSelected", JSON.stringify(dateSelected));
+    });
+  });
+}
+
+function renderDateSaved() {
+  const $navHeaderMonth = document.querySelector(".nav__header__month");
+  const dateSelected = JSON.parse(localStorage.getItem("dateSelected"));
+  const dateSelectedDate = parseInt(dateSelected[2]);
+
+  if (
+    monthNamesList[parseInt(dateSelected[1]) - 1] ===
+    $navHeaderMonth.textContent
+  ) {
+    const $dates = document.querySelectorAll(".this-month");
+    $dates.forEach(($date) => {
+      if (parseInt($date.textContent) === dateSelectedDate) {
+        $date.classList.add("picked");
+      }
+    });
+  }
+}
+
+function renderToday() {
+  const $navHeaderMonth = document.querySelector(".nav__header__month");
+  const $navHeaderYear = document.querySelector(".nav__header__year");
+  const $dates = document.querySelectorAll(".this-month");
+  if (todayObj.getFullYear() === parseInt($navHeaderYear.textContent)) {
+    $dates.forEach(($date) => {
+      if (
+        monthNamesList[todayObj.getMonth()] === $navHeaderMonth.textContent &&
+        parseInt($date.textContent) === todayObj.getDate()
+      ) {
+        $date.classList.add("circle");
+      }
+    });
+  }
+}
+
+function renderHolidays() {
+  const firstDayOfMonth = new Date(
+    currentObj.getFullYear(),
+    currentObj.getMonth(),
+    1
+  ).getDay();
+  const firstHolidayDate = 7 - firstDayOfMonth + 1;
+  let holidayList = [];
+  let i = firstHolidayDate;
+  while (i <= monthDayList[currentObj.getMonth()]) {
+    holidayList.push(i);
+    i += 7;
+  }
+
+  const $dates = document.querySelectorAll(".this-month");
+  $dates.forEach(($date) => {
+    if (holidayList.includes(parseInt($date.textContent))) {
+      $date.classList.add("holiday");
+    }
+  });
 }
 
 export const updateNavHeader = (direction) => {
@@ -135,12 +231,19 @@ export const updateNavHeader = (direction) => {
     getNavHeader(currentObj);
   }
   updateCalendarGrid(currentObj);
+  renderDatePicked(currentObj);
+  if (localStorage.length !== 0) {
+    renderDateSaved();
+  }
+  renderToday();
+  renderHolidays();
 };
 
 // 화면에 캘린더를 출력
 export const renderCalendar = () => {
   $calendarContainer.classList.remove("hidden");
   updateNavHeader();
+  //pickDate(todayObj);
 };
 
 // 화면에서 캘린더 제거

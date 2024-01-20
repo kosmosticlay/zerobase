@@ -29,7 +29,6 @@ ro.observe($calendar);
 $dateInput.addEventListener("focus", renderCalendar);
 document.addEventListener("click", function (event) {
   // 클릭된 요소가 input이면 removeCalendar 함수를 실행하지 않음
-
   if (event.target !== $dateInput) {
     removeCalendar($calendar, event);
   }
