@@ -99,7 +99,23 @@ async function loadMore() {
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      loadMore();
+      const $newsListContainer = document.querySelector(".news-list-container");
+      const $existingLoader = document.querySelector(".scroll-observer");
+
+      if ($existingLoader) {
+        $newsListContainer.removeChild($existingLoader);
+      }
+
+      // loader 생성 및 출력
+      const $loader = CreateDOM("div", "scroll-observer");
+      const $img = document.createElement("img");
+      $img.src = "img/ball-triangle.svg";
+      $img.alt = "Loading...";
+      $loader.appendChild($img);
+      $newsListContainer.appendChild($loader);
+
+      // loader 출력 확인을 위해 뉴스 피드 1초 후에 추가
+      setTimeout(loadMore, 1000);
     }
   });
 };
