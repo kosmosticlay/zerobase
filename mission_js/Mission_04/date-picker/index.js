@@ -77,7 +77,8 @@ function updateCalendarGrid(dateObj) {
 
   // 각 월의 1일을 기준으로 날짜 출력
   let tempArr = [];
-  //지난달 i=3까지
+
+  // 지난달
   let preMonthObj = new Date(currentObj);
   preMonthObj.setMonth(preMonthObj.getMonth() - 1);
   let preMonthLastDate = monthDayList[preMonthObj.getMonth()];
