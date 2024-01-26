@@ -1,19 +1,19 @@
 {
   "todos": [
     {
-      "content": "테스트 1",
-      "completed": false,
-      "id": 1
+      "id": "e0d9",
+      "content": "테스트 01",
+      "completed": false
     },
     {
-      "content": "테스트 2",
-      "completed": true,
-      "id": 2
+      "id": "7cd5",
+      "content": "테스트 02",
+      "completed": false
     },
     {
-      "content": "테스트 3",
-      "completed": false,
-      "id": 3
+      "id": "af99",
+      "content": "테스트 03",
+      "completed": false
     }
   ]
 }

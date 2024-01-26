@@ -95,9 +95,6 @@
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({ completed }),
     })
-      .then((response) => response.json())
-      .then(getTodos)
-      .catch((error) => console.error(error.message))
   }
 
   const changeEditMode = (e) => {
